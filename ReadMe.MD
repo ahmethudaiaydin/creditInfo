@@ -1,0 +1,8 @@
+- CreditInfo application is a console application to read XML contract data and process every contract one by one.
+- ConsoleApp is the main application that is ran. However due to the time is done, I couldn't finish what I was thinking. 
+- I mostly focused on domain design and validation of business rules.
+- My plan was to create a factory to make a selection among `XmlReaders` that is taking `Contract` object from different providers. So that application will be extensible when we need to add another provider that wants to share contracts with us. We would need only to add a new reader and introduce it to `ReaderFactory`
+- `FluentValidation` is preferred to validate the data so that validation is abstracted from process.
+- EFCore is preferred for data access however I couldn't finalise the integration of it, since it has some problems to understand `Price` record objects. It needs to be solved to make it run.
+- `ContractProcess` is the process object that will be persist to database for every node of file. It was designed in DDD aproach so that it is ready to extend with event driven architecture by raising events in domain actions like ProcessFailed or ProcessSucceed.
+- Dependency Injection is used to seperate object creation and process.
